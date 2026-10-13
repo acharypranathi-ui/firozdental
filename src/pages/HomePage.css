@@ -340,6 +340,119 @@
   text-align: center;
 }
 
+/* Homepage Blog Section */
+.home-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.home-blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-blog-thumb-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.home-blog-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.home-blog-card:hover .home-blog-thumb {
+  transform: scale(1.05);
+}
+
+.home-blog-category {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.home-blog-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.home-blog-card-title {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.home-blog-card-title:hover {
+  color: var(--primary);
+}
+
+.home-blog-excerpt {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.home-blog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.home-blog-read-more {
+  background: transparent;
+  border: none;
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.home-blog-read-more:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.home-blog-author {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.home-blog-cta {
+  text-align: center;
+}
+
 /* Callout Section */
 .clinic-callout-section {
   padding: 2rem 0 5rem;

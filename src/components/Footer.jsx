@@ -22,6 +22,7 @@ export default function Footer({ setActivePage, openAppointmentModal }) {
     { id: 'treatments', label: 'Treatments & Procedures' },
     { id: 'gallery', label: 'Clinic Gallery' },
     { id: 'testimonials', label: 'Verified Reviews' },
+    { id: 'blog', label: 'Dental Blogs & Insights' },
     { id: 'contact', label: 'Contact & Location' }
   ];
 

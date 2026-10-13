@@ -13,17 +13,19 @@ import TreatmentsPage from './pages/TreatmentsPage';
 import GalleryPage from './pages/GalleryPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
+import BlogPage from './pages/BlogPage';
+import BlogArticlePage from './pages/BlogArticlePage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [appointmentModalOpen, setAppointmentModalOpen] = useState(false);
   const [selectedTreatment, setSelectedTreatment] = useState('');
 
-  // Handle URL hash changes for direct deep linking (e.g. #doctors, #services)
+  // Handle URL hash changes for direct deep linking (e.g. #doctors, #services, #blog, #blog-article)
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'about', 'doctors', 'services', 'treatments', 'gallery', 'testimonials', 'contact'];
+      const validPages = ['home', 'about', 'doctors', 'services', 'treatments', 'gallery', 'testimonials', 'contact', 'blog', 'blog-article'];
       if (validPages.includes(hash)) {
         setActivePage(hash);
       }
@@ -101,6 +103,20 @@ export default function App() {
       case 'contact':
         return (
           <ContactPage 
+            openAppointmentModal={() => handleOpenAppointmentModal()} 
+          />
+        );
+      case 'blog':
+        return (
+          <BlogPage 
+            setActivePage={handlePageChange} 
+            openAppointmentModal={() => handleOpenAppointmentModal()} 
+          />
+        );
+      case 'blog-article':
+        return (
+          <BlogArticlePage 
+            setActivePage={handlePageChange} 
             openAppointmentModal={() => handleOpenAppointmentModal()} 
           />
         );

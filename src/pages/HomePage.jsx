@@ -11,9 +11,12 @@ import {
   Clock,
   Star,
   Users,
-  Activity
+  Activity,
+  BookOpen,
+  User
 } from 'lucide-react';
 import { HOSPITAL_INFO, TREATMENTS_DATA } from '../data/dentalData';
+import { BLOG_POSTS } from '../data/blogData';
 import './HomePage.css';
 
 export default function HomePage({ setActivePage, openAppointmentModal }) {
@@ -238,6 +241,77 @@ export default function HomePage({ setActivePage, openAppointmentModal }) {
               }}
             >
               <span>View All 10+ Verified Treatments</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Dental Health Blogs & Insights Section */}
+      <section className="section-padding bg-surface" id="home-blog-section">
+        <div className="container">
+          <div className="section-header">
+            <div className="badge-tag">
+              <BookOpen size={14} />
+              <span>Articles & Education</span>
+            </div>
+            <h2 className="section-title">Dental Health Blogs & Insights</h2>
+            <p className="section-subtitle">
+              Stay informed with our evidence-based dental care guides, digital healthcare articles, and preventive oral health recommendations.
+            </p>
+          </div>
+
+          <div className="home-blog-grid">
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <div key={post.id} className="home-blog-card card">
+                <div className="home-blog-thumb-wrap">
+                  <img src={post.image} alt={post.title} className="home-blog-thumb" />
+                  <span className="home-blog-category">{post.category}</span>
+                </div>
+                <div className="home-blog-body">
+                  <div className="home-blog-meta">
+                    <span><Calendar size={13} /> {post.date}</span>
+                    <span>•</span>
+                    <span><Clock size={13} /> {post.readTime}</span>
+                  </div>
+                  <h3 
+                    className="home-blog-card-title"
+                    onClick={() => {
+                      setActivePage(post.id === 'digital-marketing-strategy-dental-clinic' ? 'blog-article' : 'blog');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                  >
+                    {post.title}
+                  </h3>
+                  <p className="home-blog-excerpt">{post.excerpt}</p>
+                  <div className="home-blog-footer">
+                    <button 
+                      className="home-blog-read-more"
+                      onClick={() => {
+                        setActivePage(post.id === 'digital-marketing-strategy-dental-clinic' ? 'blog-article' : 'blog');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                    >
+                      <span>Read More</span>
+                      <ArrowRight size={14} />
+                    </button>
+                    <span className="home-blog-author">By {post.author.split(' ')[0]}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="home-blog-cta">
+            <button 
+              id="view-all-blogs-btn"
+              className="btn btn-secondary btn-lg"
+              onClick={() => {
+                setActivePage('blog');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <span>View All Blogs & Insights</span>
               <ArrowRight size={18} />
             </button>
           </div>

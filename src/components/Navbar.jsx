@@ -23,6 +23,7 @@ export default function Navbar({ activePage, setActivePage, openAppointmentModal
     { id: 'treatments', label: 'Treatments' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' }
   ];
 
